@@ -1,11 +1,10 @@
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 5px 0 0;
   background: white;
   color: black;
   overflow-x: hidden;
-  /* removido transform daqui para evitar conteúdo deslocado */
 }
 
 body.slide-in {
