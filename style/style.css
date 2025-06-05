@@ -4,17 +4,18 @@ body {
   padding: 0;
   background: white;
   color: black;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
   overflow-x: hidden;
+  /* removido transform daqui para evitar conteúdo deslocado */
 }
 
 body.slide-in {
   transform: translateX(0);
+  transition: transform 0.3s ease;
 }
 
 body.slide-out {
   transform: translateX(-100%);
+  transition: transform 0.3s ease;
 }
 
 header {
@@ -38,7 +39,6 @@ header {
   transform: scale(1.1); 
 }
 
-
 section {
   padding: 1.25rem;
 }
@@ -48,14 +48,15 @@ input, textarea {
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.8rem;
+  box-sizing: border-box;
 }
 
 button {
-    padding: 0.8rem;
-    color: inherit;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+  padding: 0.8rem;
+  color: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .container-centro {
@@ -64,6 +65,7 @@ button {
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 #contato {
@@ -76,12 +78,14 @@ button {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  box-sizing: border-box;
 }
 
 #contato h2 {
   text-align: center;
   font-family: Arial, sans-serif;
   font-weight: 600;
+  margin: 0;
 }
 
 #form-contato {
@@ -98,6 +102,7 @@ button {
   border-radius: 5px;
   font-family: Arial, sans-serif;
   resize: vertical;
+  box-sizing: border-box;
 }
 
 .formbutton {
@@ -152,6 +157,7 @@ section {
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-sizing: border-box;
 }
 
 /* modo escuro  */
@@ -179,7 +185,7 @@ body.dark section {
 
 body.dark #contato {
   background-color: #2c2c2c;
-  box-shadow: 15px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 body.dark #contato h2 {
@@ -193,8 +199,7 @@ body.dark #form-contato textarea {
   border: 1px solid #555;
 }
 
-body.dark #form-contato 
-body.dark #form-contato  {
+body.dark #form-contato {
   color: #aaa;
 }
 
@@ -211,7 +216,6 @@ body.dark .formbutton:hover {
 body.dark .erro {
   color: #66ff99;
 }
-
 
 /* Fundo das tirinhas  */
 .tirinhas-background {
