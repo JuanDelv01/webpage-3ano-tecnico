@@ -58,9 +58,68 @@ button {
     cursor: pointer;
 }
 
+.container-centro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+#contato {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contato h2 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+}
+
+#form-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#form-contato input,
+#form-contato textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  resize: vertical;
+}
+
+.formbutton {
+  background-color: #2c83df;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.formbutton:hover {
+  background-color: #0056b3;
+}
+
 .erro {
   color: rgb(15, 191, 68);
   font-size: 1rem;
+  height: 1.2rem;
+  text-align: center;
 }
 
 .site-header {
@@ -118,6 +177,42 @@ body.dark section {
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
 }
 
+body.dark #contato {
+  background-color: #2c2c2c;
+  box-shadow: 15px rgba(255, 255, 255, 0.1);
+}
+
+body.dark #contato h2 {
+  color: #fff;
+}
+
+body.dark #form-contato input,
+body.dark #form-contato textarea {
+  background-color: #3a3a3a;
+  color: #ddd;
+  border: 1px solid #555;
+}
+
+body.dark #form-contato 
+body.dark #form-contato  {
+  color: #aaa;
+}
+
+body.dark .formbutton {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+}
+
+body.dark .formbutton:hover {
+  background-color: #357abd;
+}
+
+body.dark .erro {
+  color: #66ff99;
+}
+
+
 /* Fundo das tirinhas  */
 .tirinhas-background {
   position: fixed;
@@ -135,11 +230,14 @@ body.dark section {
   width: 30px;
   height: 310vh; 
   margin-right: 4px;
-  background: linear-gradient(180deg, rgba(255, 100, 100, 0.3), rgba(255, 50, 50, 0.7));
+  background: linear-gradient(
+    to bottom,
+    rgba(108, 14, 14, 0.682),
+    rgba(241, 6, 6, 0.7));
   position: relative;
   top: 50%; 
   transform: translateY(-50%) rotate(-20deg);
   opacity: 0.5;
   filter: drop-shadow(0 0 2px rgba(255, 50, 50, 0.4));
+  filter: drop-shadow(0 0 2px rgba(129, 2, 2, 0.53));
 }
-
