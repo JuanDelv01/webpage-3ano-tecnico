@@ -1,23 +1,38 @@
-//modo escuro 
-document.getElementById("toggle-tema").addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-});
+// Toggle modo escuro com troca de ícone
+const toggleTema = document.getElementById("toggle-tema");
+if (toggleTema) {
+  toggleTema.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
 
-// mensagem no topo do site com nome e horario(de seu dipositivo que acessou o site.~.)
+    const icon = toggleTema.querySelector("i");
+    if (icon.classList.contains("fa-moon")) {
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
+    } else {
+      icon.classList.remove("fa-sun");
+      icon.classList.add("fa-moon");
+    }
+  });
+}
+
+// Mensagem no topo do site com nome e horário (do dispositivo)
 function mensagemdotopo() {
   const agora = new Date();
   const hora = agora.getHours();
   const minutos = agora.getMinutes();
   const alunos = ["Juan", "Del", "Luiza", "Marques"];
   const nomedadupla = alunos[Math.floor(Math.random() * alunos.length)];
-  const minutostransforma = minutos < 10 ? '0' + minutos : minutos;
+  const minutostransforma = minutos < 10 ? "0" + minutos : minutos;
   const msg = `Site de ${nomedadupla} / Horário atual: ${hora}:${minutostransforma}`;
 
-  document.getElementById("hora-msg").textContent = msg;
+  const horaMsg = document.getElementById("hora-msg");
+  if (horaMsg) {
+    horaMsg.textContent = msg;
+  }
 }
 mensagemdotopo();
 
-//formulario de contato
+// Validação e envio do formulário de contato
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-contato");
   if (form) {
@@ -28,24 +43,25 @@ document.addEventListener("DOMContentLoaded", () => {
       const msg = document.getElementById("mensagem").value.trim();
       const erro = document.getElementById("erro-form");
       if (!nome || !email || !msg) {
-        erro.textContent = "Preencha";
+        erro.textContent = "Por favor, preencha todos os campos.";
         return;
       }
-      erro.textContent = "Mensagem enviada";
+      erro.textContent = "Mensagem enviada com sucesso!";
       form.reset();
     });
   }
 });
 
-// navegacao 
+// Navegação dinâmica
 const barradenav = [
   { nome: "Internet", link: "index.html" },
   { nome: "-Html-", link: "historia1.html" },
-  { nome: "Contato", link: "contato.html" }
+  { nome: "Contato", link: "contato.html" },
 ];
+
 const nav = document.getElementById("barraN");
 if (nav) {
-  barradenav.forEach(item => {
+  barradenav.forEach((item) => {
     const a = document.createElement("a");
     a.href = item.link;
     a.textContent = item.nome;
@@ -53,7 +69,7 @@ if (nav) {
   });
 }
 
-//uma lista de tags usando if e whilw
+// Lista de tags usando while
 const Tags = [
   "<html> — marca o início do documento HTML",
   "<head> — contém metadados da página",
@@ -69,8 +85,9 @@ const Tags = [
   "<ol> — lista ordenada",
   "<li> — item da lista",
   "<pre> — texto pré-formatado (mantém espaços e quebras)",
-  "<code> — bloco de código (marcação inline para código)"
+  "<code> — bloco de código (marcação inline para código)",
 ];
+
 const ul3m19 = document.getElementById("lista");
 if (ul3m19) {
   let i = 0;
@@ -82,11 +99,12 @@ if (ul3m19) {
   }
 }
 
-// Aplica animacao ao carregar
+// Animação ao carregar página e animação de saída ao clicar nos links internos
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("slide-in");
 });
-document.querySelectorAll("a[href]").forEach(link => {
+
+document.querySelectorAll("a[href]").forEach((link) => {
   link.addEventListener("click", function (e) {
     const href = this.getAttribute("href");
     if (href.startsWith("#") || this.target === "_blank") return;
@@ -95,6 +113,6 @@ document.querySelectorAll("a[href]").forEach(link => {
     document.body.classList.add("slide-out");
     setTimeout(() => {
       window.location.href = href;
-    }, 300); 
+    }, 300);
   });
 });
